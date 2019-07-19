@@ -18,7 +18,7 @@ else{
 
 
 
-$state=$con->prepare("INSERT INTO assistance_table (username, password) VALUES(?,?)");
+$state=$con->prepare("INSERT INTO attendance_table (username, password) VALUES(?,?)");
 
 $state->bind_param("ss",$name,$pass);
 
