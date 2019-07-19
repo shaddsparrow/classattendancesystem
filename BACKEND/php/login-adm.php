@@ -16,7 +16,7 @@ $con=new mysqli($hostname,$username,$password,$db);
       die ("connection failed to establish".$conn->connect_error);
   }
       
-     $take="SELECT username,password FROM assistance_table";
+     $take="SELECT username,password FROM attendance_table";
 
      $result=$con->query($take);
        
