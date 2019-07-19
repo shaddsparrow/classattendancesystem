@@ -1,0 +1,47 @@
+body{
+	background: linear-gradient(rgba(0, 0, 50, 0.5),rgba(0, 0, 50, 0.5)),url(class2.JPG.JPG);
+	background-size: cover; 
+	background-position: center;
+}
+.login-box{
+	max-width: 700px;
+	float: none;
+	margin: 150px auto;
+}
+.login-left{
+	background: rgba(211, 211, 211, 0.5);
+	padding: 30px;
+}
+.login-right{
+	background: lightblue;
+	padding: 30px;
+}
+table{
+	border-collapse: collapse;
+	width: 100%
+		
+}
+table, th{
+	color: red;
+border-width: 20px;
+	border: 1px solid black;
+	
+}
+table td{
+	color:black;
+	border-width: 20px;
+	border: 1px solid black;
+	text-align: center;
+	
+}
+th{
+	height: 30px;
+	text-align: center;
+	
+}
+.formtitle {
+background: lightgreen;
+	padding: 20px;
+  border: 1px 
+
+}
