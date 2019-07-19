@@ -1,46 +1,54 @@
 <?php
 
-$host = "localhost";
-$user = "root";
-$pass = "";
-$db = "db_attendance";
+
+   
+
+$hostname="localhost";
+$username="root";
+$password="";
+$db="db_attendance";
 
 
-$con = new mysqli($host, $user, $pass, $db);
-
-$clas = "SELECT username,password FROM assistance_table";
+$con=new mysqli($hostname,$username,$password,$db);
 
 
-$editor=$con->query($clas);
+  if($con->connect_error){
+      die ("connection failed to establish".$conn->connect_error);
+  }
+      
+     $take="SELECT username,password FROM assistance_table";
 
-
-
-if($editor->num_rows>0){
-    $seat=$editor->fetch_assoc();
-    echo($seat);
-
-}
-
-
-
-
-
-// if(isset($_POST['user'])){
-//     $name =mysqli_real_escape_string($con,$_POST['user']);
-//     $pass =mysqli_real_escape_string($con,$_POST['password']);
-//     }
-
+     $result=$con->query($take);
+       
+      
+          
+            if($result->num_rows > 0){
     
-// if($name=$seat['username']){
-//     if($pass=$seat['password']){
-//        require("form.php");
-//     }
-// }   
-// else require("login.php");
-//  echo "login error";
+           
+                $row=$result->fetch_assoc();
 
-//  exit();
+                if(isset($_POST['user'])){
+                        $name =mysqli_real_escape_string($con,$_POST['user']);
+                        $pass =mysqli_real_escape_string($con,$_POST['password']);
+                        }
+                    
+                        
+                    if($name=$row['username']){
+                        if($pass=$row['password']){
+                           require("form.php");
+                        }
+                        echo "WRONG PASSWORD";
+                    }   
+                    else require("login.php");
+                     echo "login error";
+                    
+                     exit();
+                
+                    
+                } 
+      
 
+        
  $con->close();
 
 ?>
