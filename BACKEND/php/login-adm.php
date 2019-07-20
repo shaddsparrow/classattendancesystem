@@ -1,33 +1,46 @@
 <?php
 
-$host="localhost";
-$username="root";
-$password="";
-$database="";
+$host = "localhost";
+$user = "root";
+$pass = "";
+$db = "db_attendance";
+
+
+$con = new mysqli($host, $user, $pass, $db);
+
+$clas = "SELECT username,password FROM assistance_table";
+
+
+$editor=$con->query($clas);
 
 
 
-
-$conn=mysqli_connect($host,$username,$password,$database);
-
-if(!$conn){
-
-die("ERROR CONNECTING TO DATABASE");
+if($editor->num_rows>0){
+    $seat=$editor->fetch_assoc();
+    echo($seat);
 
 }
 
-//VALIDATION FROM THE DATABASE
-
-$conn->query("SELECT usename,password from login");
 
 
 
 
+// if(isset($_POST['user'])){
+//     $name =mysqli_real_escape_string($con,$_POST['user']);
+//     $pass =mysqli_real_escape_string($con,$_POST['password']);
+//     }
 
+    
+// if($name=$seat['username']){
+//     if($pass=$seat['password']){
+//        require("form.php");
+//     }
+// }   
+// else require("login.php");
+//  echo "login error";
 
+//  exit();
 
-
-
-
+ $con->close();
 
 ?>

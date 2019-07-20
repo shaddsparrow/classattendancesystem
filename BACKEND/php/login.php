@@ -13,7 +13,7 @@
 		<div class = "row">
 			<div class="col-md-6 login-left">
 			<h2>login here</h2>
-				<form action="validate.php" method="post">
+				<form action="login-adm.php" method="post">
 				<div class = "form-group">
 					<label>username</label>
 					<input type = "text"name="user"class="form-control"required>

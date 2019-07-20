@@ -3,7 +3,7 @@
 $host = "localhost";
 $user = "root";
 $pass = "";
-$db = "class_attendance";
+$db = "db_attendance";
 
 
 $con = new mysqli($host, $user, $pass, $db);
@@ -16,23 +16,32 @@ else{
 	echo "Connected";
 }
 
-$name =$_POST['user'];
-$pass =$_POST['password'];
 
-if($name ==""){
-		
-	echo "Insert name";
-	if($pass ==""){
-
-		echo "Insert password";
-		
-	}
+if(isset($_POST['user'])){
+$name =mysqli_real_escape_string($con,$_POST['user']);
+$pass =mysqli_real_escape_string($con,$_POST['password']);
 }
 
 
 
-$rego = `INSERT INTO attendance_table (username, password) VALUES ($name,$pass)`; 
-        $con->query($rego);
+// if($name == ""){
+		
+// 	echo "Insert name";
+// 	if($pass ==""){
+
+// 		echo "Insert password";
+		
+// 	}
+// }
+
+$state=$con->prepare("INSERT INTO attendance_table (username, password) VALUES(?,?)");
+
+$state->bind_param("ss",$name,$pass);
+$state->execute();
+
+// $rego = `INSERT INTO attendance_table (username, password) VALUES ($name,$pass)`; 
+
+$state->close();
 
 $con->close();
 // mysqli_select_db($con, 'userregistration');
