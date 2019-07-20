@@ -16,6 +16,13 @@ body{
 	background: lightblue;
 	padding: 30px;
 }
+#redisplay{
+	color:red;
+	position: relative;
+	font-size: 20px;
+	margin-top: -460px;
+	margin-left:620px;
+}
 table{
 	border-collapse: collapse;
 	width: 100%

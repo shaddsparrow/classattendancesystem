@@ -1,5 +1,7 @@
 $(document).ready(()=>{
 
+
+
     
 $.ajax({
     type: "get",
@@ -48,36 +50,19 @@ $.ajax({
             `)
    
         })
-
-        
-
-        
-
-
-      
-
-        //const me = JSON(response);
-
-        //  const csvarray=[];
-
-        // var rows = response.split('\n');
-        // for(var i = 0; i < rows.length; i++){
-        //     csvarray.push(rows[i].split(','));}
-
-        // console.log(csvarray);
-
-
-    
-
-
-       // console.log(response.Timestamp);
         
     }
 });
 
 
 
+$("[rel='reg']").on("click",(evt)=>{
+evt.preventDefault();
+evt.stopPropagation();
+evt.stopImmediatePropagation();
 
+
+})
 
 
 })

@@ -13,7 +13,7 @@ $con=new mysqli($hostname,$username,$password,$db);
 
 
   if($con->connect_error){
-      die ("connection failed to establish".$conn->connect_error);
+      die ("connection failed to establish".$con->connect_error);
   }
       
      $take="SELECT username,password FROM attendance_table";
@@ -22,30 +22,41 @@ $con=new mysqli($hostname,$username,$password,$db);
        
       
           
-            if($result->num_rows > 0){
+            
     
            
-                $row=$result->fetch_assoc();
+               
 
-                if(isset($_POST['user'])){
-                        $name =mysqli_real_escape_string($con,$_POST['user']);
-                        $pass =mysqli_real_escape_string($con,$_POST['password']);
-                        }
+                if($result->num_rows > 0){
+    
+               
+    
+                    if(isset($_POST['log_user'])){
+                        $user=mysqli_real_escape_string($con,$_POST['log_user']);
+                        $pass=mysqli_real_escape_string($con,$_POST['log_password']);
+                        $dehash=md5($pass);
                     
-                        
-                    if($name=$row['username']){
-                        if($pass=$row['password']){
-                           require("form.php");
-                        }
-                        echo "WRONG PASSWORD";
-                    }   
-                    else require("login.php");
-                     echo "login error";
+                    $row=$result->fetch_assoc();
+                   
                     
-                     exit();
+                    if($user===$row['username']&& $dehash===$row['password']){
+                        require("form.php");
+    
+                        exit();
+                    
+                    }else{
+
+
+                    require("login.php"); 
+                    echo "<h1 id='redisplay'>SIGN UP FIRST</h1>";
+                    exit();}
+                    
+                   
+                }}
+                require("login.php");
+                    echo "<p class='redisplay'>NO REGISTERED USER FOR THE PLATFORM</p>";
                 
-                    
-                } 
+                
       
 
         

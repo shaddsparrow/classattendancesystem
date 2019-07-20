@@ -5,6 +5,7 @@
 		<link rel="stylesheet" type="text/css" href="./../../FRONTEND/css/style.css">
 		<link rel="stylesheet"type = "text/css"
 			  href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+			  <script src="./../../FRONTEND/js/classinfo.js"></script>
 		
 	</head>
 	<body>
@@ -16,16 +17,17 @@
 				<form action="login-adm.php" method="post">
 				<div class = "form-group">
 					<label>username</label>
-					<input type = "text"name="user"class="form-control"required>
+					<input type = "text" name="log_user" class="form-control"required>
 					</div>
 					<div class = "form-group">
 					<label>password</label>
-						<input type="password"name="password"class="form-control"required>
+						<input type="password" name="log_password" class="form-control"required>
 					</div>
 					<button type = "submit" class = "btn btn-primary">login</button>
 				</form>
 			</div>
-			<div class="col-md-6 login-right">
+			<div class="col-md-6 login-right" >
+		
 			<h2>register here</h2>
 				<form action="registry.php" method="post">
 					
@@ -37,7 +39,7 @@
 					<label>password</label>
 						<input type="password"name="password"class="form-control"required>
 					</div>
-					<button type = "submit" class = "btn btn-primary">register</button>
+					<button type = "submit" class = "btn btn-primary" rel="reg">register</button>
 				</form>
 			
 		
